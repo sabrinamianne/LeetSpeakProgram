@@ -10,7 +10,7 @@ public class Program
     for (int i=0; i<newArray.Length; i++)
     {
       char let = newArray[i];
-      if (let == 'e' || let == 'E')
+      if (let == 'e')
       newArray[i]= '3';
       else if (let == 'o')
       newArray[i] = '0';
@@ -19,11 +19,16 @@ public class Program
       else if (let == 'I')
       newArray[i] = '1';
     }
-    for (int i= 0; i<newArray.Length; i++)
+    for (int i= 0; i<UserInput.Length; i++)
     {
-      int indexS = newArray.IndexOf('s');
+      char let2 = newArray[i];
+      int indexOfS = i;
+      int IndexBeforeS = indexOfS - 1;
+      if(let2 == 's' && indexOfS == 0)
+      newArray[indexOfS] = let2;
+      else if(let2 == 's' && newArray[IndexBeforeS] != ' ')
+      newArray[indexOfS] = 'z';
     }
-
     string result = new string (newArray);
     Console.WriteLine(result);
   }
